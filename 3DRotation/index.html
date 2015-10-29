@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		#con{
+			background-color:#666666;
+			position:absolute;
+			width:200px;
+			height:200px;
+			font-size:100px;
+			font-family:"微软雅黑";
+			text-align:center;
+			line-height:200px;
+			top:100px;
+			left:100px;
+		}
+	</style>
+	<body>
+		<input id="LF" type="button" value="水平翻"></input>
+		<input id="RF" type="button" value="垂直翻"></input>
+		<input id="LR" type="button" value="左转"></input>
+		<input id="RR" type="button" value="右转"></input>
+		<input id="UP" type="button" value="上"></input>
+		<input id="DOWN" type="button" value="下"></input>
+		<input id="LEFT" type="button" value="左"></input>
+		<input id="RIGHT" type="button" value="右"></input>
+		<div id="con">
+			<div class="aass">郑</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.2.js"></script>
+	<script src="js/zdw_ControlD.js"></script>
+	<script>
+		
+		var div = document.getElementsByTagName("div")[0];
+		var zdw_div = ZDWContoler.initData(div)
+		var RR = $$("RR");
+		var LR = $$("LR");
+		var UP = $$("UP");
+		var DOWN = $$("DOWN");
+		var LEFT = $$("LEFT");
+		var RIGHT = $$("RIGHT");
+		var LF = $$("LF");
+		var RF = $$("RF");
+		
+		RR.addEventListener("mousedown",RRFN,false)
+		function RRFN(){
+			zdw_div.RotationR();
+		}
+		
+		LR.addEventListener("mousedown",LRFN,false)
+		function LRFN(){
+			zdw_div.RotationL();
+		}
+		
+		UP.addEventListener("mousedown",UPFN,false)
+		function UPFN(){
+			zdw_div.UpMove();
+		}
+		
+		DOWN.addEventListener("mousedown",DOWNFN,false)
+		function DOWNFN(){
+			zdw_div.DownMove();
+		}
+		
+		LEFT.addEventListener("mousedown",LEFTFN,false)
+		function LEFTFN(){
+			zdw_div.LeftMove();
+		}
+		
+		RIGHT.addEventListener("mousedown",RIGHTFN,false)
+		function RIGHTFN(){
+			zdw_div.RightMove();
+		}
+		
+		LF.addEventListener("mousedown",LFFN,false)
+		function LFFN(){
+			zdw_div.FlipH();
+		}
+		
+		RF.addEventListener("mousedown",RFFN,false)
+		function RFFN(){
+			zdw_div.FlipV();
+		}
+		function $$(str){
+			return document.getElementById(str);
+		}
+	</script>
+</html>
